@@ -14,46 +14,49 @@ class _AddScreenState extends State<AddScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            Stack(
+          child: SingleChildScrollView(
+            child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
               children: [
-                Lottie.asset('assets/lotties/24811-saving-money.json'),
-                IconButton(
+                Stack(
+                  children: [
+                    Lottie.asset('assets/lotties/24811-saving-money.json'),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: bgPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
+                TextField(
+                  controller: _controller,
+                  decoration: InputDecoration(
+                    labelText: 'Nabung berapa?',
+                    hintText: 'Masukkan nominal uang yang anda tabung',
+                  ),
+                ),
+                SizedBox(height: 24),
+                ElevatedButton(
                   onPressed: () {
+                    // TODO : Fungsi tambah data
                     Navigator.pop(context);
                   },
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: bgPrimaryColor,
+                  child: Text('Tabung!'),
+                  style: ElevatedButton.styleFrom(
+                    primary: bgPrimaryColor,
+                    padding: EdgeInsets.all(16.0),
                   ),
                 ),
               ],
             ),
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                labelText: 'Nabung berapa?',
-                hintText: 'Masukkan nominal uang yang anda tabung',
-              ),
-            ),
-            SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                // TODO : Fungsi tambah data
-                Navigator.pop(context);
-              },
-              child: Text('Tabung!'),
-              style: ElevatedButton.styleFrom(
-                primary: bgPrimaryColor,
-                padding: EdgeInsets.all(16.0),
-              ),
-            ),
-          ],
-        ),
-      )),
+                  ),
+          )
+      ),
     );
   }
 
