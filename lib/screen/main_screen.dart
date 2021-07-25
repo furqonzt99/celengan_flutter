@@ -95,7 +95,7 @@ class MainScreen extends StatelessWidget {
                       ),
                       tooltip: 'Pecahkan celengan!',
                       onPressed: () {
-                        // NOTE : Fungsi kosongkan data
+                        // TODO : Fungsi kosongkan data
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return CrackedScreen();

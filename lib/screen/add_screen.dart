@@ -42,7 +42,7 @@ class _AddScreenState extends State<AddScreen> {
             SizedBox(height: 24),
             ElevatedButton(
               onPressed: () {
-                // NOTE : Fungsi tambah data
+                // TODO : Fungsi tambah data
                 Navigator.pop(context);
               },
               child: Text('Tabung!'),
