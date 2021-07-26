@@ -14,8 +14,8 @@ class _AddScreenState extends State<AddScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
+        child: SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Column(
               children: [
@@ -54,8 +54,8 @@ class _AddScreenState extends State<AddScreen> {
                 ),
               ],
             ),
-                  ),
-          )
+          ),
+        ),
       ),
     );
   }

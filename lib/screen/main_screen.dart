@@ -2,10 +2,12 @@ import 'package:celengan/model/celengan.dart';
 import 'package:celengan/screen/add_screen.dart';
 import 'package:celengan/screen/cracked_screen.dart';
 import 'package:celengan/theme.dart';
+import 'package:celengan/widget/celengan_list.dart';
+import 'package:celengan/widget/notification_button.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
-  int isiCelengan =
+  final int isiCelengan =
       celenganList.map((celengan) => celengan.money).fold(0, (p, c) => p + c);
 
   @override
@@ -131,93 +133,6 @@ class MainScreen extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class CelenganList extends StatelessWidget {
-  const CelenganList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      reverse: true,
-      itemBuilder: (context, index) {
-        final Celengan celengan = celenganList[index];
-        return InkWell(
-          onTap: () {
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    content: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        'Ini ceritanya menu edit dan hapus index ${celengan.index}',
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  );
-                });
-          },
-          child: Card(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16.0,
-                vertical: 24.0,
-              ),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 25.0,
-                    child: Icon(
-                      Icons.savings_rounded,
-                      size: 30.0,
-                    ),
-                  ),
-                  SizedBox(width: 8.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Menabung Rp. ${celengan.money}',
-                        style: mediumTextStyle,
-                      ),
-                      Text(celengan.date),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-      itemCount: celenganList.length,
-    );
-  }
-}
-
-class NotificationButton extends StatefulWidget {
-  @override
-  _NotificationButtonState createState() => _NotificationButtonState();
-}
-
-class _NotificationButtonState extends State<NotificationButton> {
-  bool isNotification = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: isNotification
-          ? Icon(Icons.notifications_active)
-          : Icon(Icons.notifications_off),
-      iconSize: 24,
-      onPressed: () {
-        setState(() {
-          isNotification = !isNotification;
-        });
-      },
     );
   }
 }
